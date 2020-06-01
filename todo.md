@@ -18,4 +18,4 @@
 
 - Show the marker based on real world store data DONE
 
-- Show the info window
+- Show the info window DONE
