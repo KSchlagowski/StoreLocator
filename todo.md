@@ -19,3 +19,11 @@
 - Show the marker based on real world store data DONE
 
 - Show the info window DONE
+
+- Style the maps marker info window
+
+- Change style of the map marker
+
+- Style the Google Map
+
++ Link the info Window Adress to Google Maps
