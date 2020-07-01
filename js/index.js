@@ -9,7 +9,8 @@ function initMap() {
     }
     map = new google.maps.Map(document.getElementById('map'), {
         center: losAngeles,
-        zoom: 8
+        zoom: 8,
+        styles: googlemapstyle
     });
     infoWindow = new google.maps.InfoWindow();
     displayStores()
@@ -65,7 +66,7 @@ function createMarker(latlng, name, address, schedule, phoneNumber) {
         null, /* size is determined at runtime */
         null, /* origin is 0,0 */
         null, /* anchor is bottom center of the scaled image */
-        new google.maps.Size(25,45)
+        new google.maps.Size(30,45)
     );  
     var marker = new google.maps.Marker({
         map: map,
