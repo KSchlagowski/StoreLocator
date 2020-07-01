@@ -49,17 +49,28 @@ function showStoresMarkers() {
             store.coordinates.longitude);
         var name = store.name;
         var address = store.addressLines[0];
+        var schedule = store.openStatusText;
+        var phoneNumber = store.phoneNumber;
         bounds.extend(latlng);
-        createMarker(latlng, name, address)
+        createMarker(latlng, name, address, schedule, phoneNumber)
     })
     map.fitBounds(bounds);
 }
 
-function createMarker(latlng, name, address) {
-    var html = "<b>" + name + "</b> <br/>" + address;
+function createMarker(latlng, name, address, schedule, phoneNumber) {
+    var html = "<b>" + name + "</b> <br/>" + schedule + "<br/>" + address + "<br/>" + phoneNumber;
+    //var iconBase = 'http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png';
+    var pinIcon = new google.maps.MarkerImage(
+        "http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png",
+        null, /* size is determined at runtime */
+        null, /* origin is 0,0 */
+        null, /* anchor is bottom center of the scaled image */
+        new google.maps.Size(25,45)
+    );  
     var marker = new google.maps.Marker({
         map: map,
-        position: latlng
+        position: latlng,
+        icon: pinIcon,
     });
     google.maps.event.addListener(marker, 'click', function() {
         infoWindow.setContent(html);
@@ -67,3 +78,6 @@ function createMarker(latlng, name, address) {
     });
     markers.push(marker);
    }
+
+   
+ 
